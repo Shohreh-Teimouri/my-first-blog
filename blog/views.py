@@ -44,10 +44,10 @@ def post_list(request):
     # posts = Post.objects.annotate(
     #     num_views=Count('post_views'), id_2=F('id')*2).all()
     posts = Post.objects.annotate(num_views=Count('post_views')).all()
-    if type == 'published':
-        posts.filter(published_date__isnull=False)
+    if types == 'published':
+        posts = posts.filter(published_date__isnull=False)
     else:
-        posts.filter(published_date__isnull=True)
+        posts = posts.filter(published_date__isnull=True)
     return render(request, 'blog/post_list.html', {'myposts': posts.order_by(sort)})
 
 ########################################################################detaillist#############################
