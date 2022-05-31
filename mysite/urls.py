@@ -22,6 +22,5 @@ urlpatterns = [
     # path('__debug__/', include('debug_toolbar.urls')),
     path('accounts/login/', views.LoginView.as_view(), name='login'),
     path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
-    path('', include('blog.urls')),
-    path('api-auth/', include('rest_framework.urls'))
+    path('', include('blog.urls'))
 ]
